@@ -18,6 +18,12 @@ public class switcher : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
 
     }
+    //Takes the user forwards three scenes
+    public void PlayGame3()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+
+    }
 
     //Take the user back one scene
     public void Back()
@@ -25,11 +31,18 @@ public class switcher : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     
     }
-    //Take the user back two scenes
+
+    //Take the user back two scene
     public void Back2()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
 
     }
 
+    //Take the user back three scene
+    public void Back3()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+
+    }
 }
