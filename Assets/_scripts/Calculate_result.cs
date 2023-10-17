@@ -24,7 +24,7 @@ public class CalculateEredmeny : MonoBehaviour
     public void OnButtonClick()
     {
         double vegeredmeny = Math.Round(Math.PI * Math.Pow(elso.value, 2) * masodik.value * harmadik.value, 2);
-        eredmeny.text = vegeredmeny.ToString() + "ml folyik ki";
+        eredmeny.text = vegeredmeny.ToString() + "ml";
 
     }
 }
