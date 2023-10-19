@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class bomb : MonoBehaviour
 {
-
+    main main;
     Transform tr;
 
     void Start()
     {
         tr = GetComponent<Transform>();
+        main = GameObject.Find("scripts").GetComponent<main>();
     }
 
     
@@ -25,10 +26,11 @@ public class bomb : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "basket")
+        if (collision.gameObject.name == "cup")
         {
             Destroy(this.gameObject);
             Destroy(collision.gameObject);
+            main.isGameOver = true;
         }
     }
 }
