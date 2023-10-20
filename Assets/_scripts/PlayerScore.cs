@@ -1,20 +1,23 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerScore : MonoBehaviour
 {
 
-    private Text scoreText;
+    private TextMeshPro scoreText;
 
     private int score = 0;
 
 
     void Awake()
     {
-        scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+         scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshPro>();
         scoreText.text = "0";
+        
     }
 
     void OnTriggerEnter2D(Collider2D target)
