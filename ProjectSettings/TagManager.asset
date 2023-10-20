@@ -6,6 +6,7 @@ TagManager:
   tags:
   - toxin
   - fruit
+  - water
   layers:
   - Default
   - TransparentFX
@@ -42,4 +43,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BG
+    uniqueID: 3974551901
+    locked: 0
+  - name: Fruit
+    uniqueID: 1555316953
+    locked: 0
+  - name: Player
+    uniqueID: 1938200459
+    locked: 0
+  - name: Canvas
+    uniqueID: 263058777
     locked: 0
