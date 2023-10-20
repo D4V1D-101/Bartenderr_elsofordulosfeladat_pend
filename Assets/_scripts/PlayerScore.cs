@@ -8,14 +8,14 @@ using TMPro;
 public class PlayerScore : MonoBehaviour
 {
 
-    private TextMeshPro scoreText;
+    private TextMeshProUGUI scoreText;
 
     private int score = 0;
 
 
     void Awake()
     {
-         scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshPro>();
+         scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
         scoreText.text = "0";
         
     }
