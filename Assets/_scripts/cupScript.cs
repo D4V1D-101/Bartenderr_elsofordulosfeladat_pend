@@ -2,41 +2,66 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cupScript : MonoBehaviour
+public class Move : MonoBehaviour
 {
-    private bool isDragging = false;
+    private Rigidbody2D rb;
+    private bool moveLeft;
+    private bool moveRight;
+    private float horizontalMove;
+    public float speed = 5;
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
 
+        moveLeft = false;
+        moveRight = false;
+    }
+
+    public void PointerDownLeft()
+    {
+        moveLeft = true;
+    }
+
+    public void PointerUpLeft()
+    {
+        moveLeft = false;
+    }
+
+    public void PointerDownRight()
+    {
+        moveRight = true;
+    }
+
+    public void PointerUpRight()
+    {
+        moveRight = false;
+    }
+
+    // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
+        MovePlayer();
+    }
 
-            if (touch.phase == TouchPhase.Began)
-            {
-                isDragging = true;
-            }
-            else if (touch.phase == TouchPhase.Moved && isDragging)
-            {
-                Vector2 touchDeltaPosition = touch.deltaPosition;
-                MoveCup(touchDeltaPosition.normalized);
-            }
-            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
-            {
-                isDragging = false;
-            }
-        }
-        else if (isDragging && Input.GetMouseButton(0))
+    private void MovePlayer()
+    {
+        if (moveLeft)
         {
-            Vector2 touchDeltaPosition = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-            MoveCup(touchDeltaPosition.normalized);
+            horizontalMove = -speed;
+        }
+        else if (moveRight)
+        {
+            horizontalMove = speed;
+        }
+        else
+        {
+            horizontalMove = 0;
         }
     }
 
-    void MoveCup(Vector2 direction)
+    private void FixedUpdate()
     {
-        // You can adjust the movement speed as needed
-        float moveSpeed = 5f;
-        transform.Translate(direction * moveSpeed * Time.deltaTime);
+        rb.velocity = new Vector2(horizontalMove, rb.velocity.y);
     }
 }
