@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,33 +15,27 @@ public class PlayerScore : MonoBehaviour
     {
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
         scoreText.text = "0";
+    }
 
-        void OnTriggerEnter2D (Collider target)
-        {
-            if (target.tag == "Toxin")
+    void OnTriggerEnter2D(Collider2D target)
+    { 
+            if (target.tag == "toxin")
             {
-                transform.position = new Vector2 (0, 100);
                 target.gameObject.SetActive (false);
+                transform.position = new Vector2 (0, 100);
                 StartCoroutine(RestartGame());
             }
-            if (target.tag == "Water")
+            if (target.tag == "water")
             {
                 target.gameObject.SetActive(false);
                 score++;
                 scoreText.text = score.ToString();
             }
-        }
-
-        IEnumerator RestartGame()
-        {
-            yield return new WaitForSecondsRealtime (2f);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    IEnumerator RestartGame()
+    { 
+            yield return new WaitForSecondsRealtime (2f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
