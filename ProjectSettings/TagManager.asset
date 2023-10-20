@@ -4,9 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - toxin
-  - fruit
-  - water
+  - Toxic
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -45,14 +44,17 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: BG
-    uniqueID: 3974551901
+    uniqueID: 1642266137
     locked: 0
-  - name: Fruit
-    uniqueID: 1555316953
+  - name: Table
+    uniqueID: 2373419803
+    locked: 0
+  - name: Water
+    uniqueID: 3410670955
     locked: 0
   - name: Player
-    uniqueID: 1938200459
+    uniqueID: 1896347837
     locked: 0
   - name: Canvas
-    uniqueID: 263058777
+    uniqueID: 679001153
     locked: 0
